@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/forms.css'%}">
+    <link rel="stylesheet" href="{%static 'css/product.css'%}">
+    <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}">
+    <title>Table Information</title>
+</head>
+<style>
+
+    .productImg {
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+
+</style>
+<body>
+  <div class="container mt-5">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+    <div class="body">
+        	<div class="container">
+                <div class="heading">
+                    <h1>Product Review</h1>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="container-fliud">
+                        <div class="wrapper row">
+                            <div class="preview col-md-6">
+                                <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1"><img src="{%static 'assets/images/table2.png'%}" /></div>
+                                </div>
+                            </div>
+                            <div class="details col-md-6">
+                                <h3 class="product-title">Belgium Wood Table</h3>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <span class="review-no">125 reviews</span>
+                                </div>
+                                <p class="product-description">An article of furniture consisting of a flat, slablike top supported on one or more legs or other supports.</p>
+                                <h4 class="price">current price: <span>$200</span></h4>
+                                <p class="vote"><strong>82%</strong> of buyers enjoyed this product! <strong>(96 votes)</strong></p>
+                                <h5 class="sizes">sizes:
+                                    <span class="size" data-toggle="tooltip" title="small">s</span>
+                                    <span class="size" data-toggle="tooltip" title="medium">m</span>
+                                    <span class="size" data-toggle="tooltip" title="large">l</span>
+                                    <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+                                </h5>
+                                <h5 class="colors">colors:
+                                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                                    <span class="color green"></span>
+                                    <span class="color blue"></span>
+                                </h5>
+                                <div class="action">
+                                    <button class="add-to-cart btn btn-default" type="button">add to cart</button>
+                                    <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviewArea">
+                    <form action="" method="POST" style="max-width: 600px;"> {% csrf_token %}
+                        {{form.as_p}}
+                        <input type="Submit" value="Submit Review" class="btn btn-primary">
+                    </form>
+                </div>
+                <div class="sentimentFeedback mt-3">
+                    <p>Your Review was {{output}} <br>Thank you for you comment.</p>
+                </div>
+	        </div>
+    </div>
+  </div>
+        
+</body>
+</html>
